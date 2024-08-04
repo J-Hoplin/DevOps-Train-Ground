@@ -1,2 +1,7 @@
+# Prometheus Mount Directory
 prometheus/mount/**
 !prometheus/mount/*.txt
+
+# Host Exporter Mount Directory
+host-exporter/**
+!host-exporter/*.txt
