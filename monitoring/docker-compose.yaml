@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/config/:/conf/prometheus
+      - ./prometheus/mount/:/prometheus
+    command:
+      - "--web.enable-lifecycle" # Enable prometheus api server reload
+      - "--config.file=/conf/prometheus/prometheus.yml"
+    restart: always
+    networks:
+      - sandbox
+
+networks:
+  sandbox:
+    driver: bridge
